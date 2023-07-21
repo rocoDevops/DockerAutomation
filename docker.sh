@@ -3,7 +3,7 @@
 echo "Update the Packages"
 sudo apt update
 echo "prerequisite packages which let apt use packages over HTTPS"
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
 echo "add the GPG key for the official Docker repository to your system"
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo "Add the Docker repository to APT sources"
@@ -11,7 +11,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docke
 echo "Update your existing list of packages again"
 sudo apt update
 echo "install Docker"
-sudo apt install docker-ce
+sudo apt install docker-ce -y
 echo "add your username to the docker group:"
 sudo usermod -aG docker ${USER}
 printf '\nDocker installed successfully\n\n'
